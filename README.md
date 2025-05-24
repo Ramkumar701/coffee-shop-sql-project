@@ -61,7 +61,7 @@ WHERE MONTH(transaction_date) = 5 -- for month of (CM-May)
 ```
 ![image](https://github.com/user-attachments/assets/427a720b-f8d0-4d30-89d9-ef7e7e6d6252)
 
-### 3.MoM (Month-over-Month) Growth and Differences
+### 4.MoM (Month-over-Month) Growth and Differences
 
 ```sql
 SELECT 
@@ -81,6 +81,39 @@ ORDER BY
 
 ```
 ![image](https://github.com/user-attachments/assets/9dd1de0b-fdaa-489a-97ba-e9560f4df7af)
+
+##Differences
+
+- *Trends & Insights*  
+ - Daily Sales and Average Sales  
+ - Above/Below Average Day Classification  
+ - Sales by Weekday vs Weekend
+
+### 1.Daily Sales
+
+```sql
+SELECT 
+    DAY(transaction_date) AS day_of_month,
+    ROUND(SUM(unit_price * transaction_qty),1) AS total_sales
+FROM 
+    coffee_shop_sales
+WHERE 
+    MONTH(transaction_date) = 5  -- Filter for May
+GROUP BY 
+    DAY(transaction_date)
+ORDER BY 
+    DAY(transaction_date);
+
+```
+![image](https://github.com/user-attachments/assets/7ccb6bad-f163-4f62-aa85-896f8077d23c)  ![image](https://github.com/user-attachments/assets/f26545c5-6252-479c-8170-c241f16f5e71)
+
+
+
+
+
+
+
+
 
 
 
