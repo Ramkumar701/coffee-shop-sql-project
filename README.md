@@ -5,7 +5,6 @@ This project contains SQL queries used to analyze sales performance data from a 
 ## Database Schema
 
 Below is the schema for the coffee_shop_sales table used in this project:
-
 ```sql
 CREATE TABLE coffee_shop_sales (
     transaction_id INT PRIMARY KEY,
@@ -18,7 +17,6 @@ CREATE TABLE coffee_shop_sales (
     store_location VARCHAR(50)
 );
 ```
-
 ## Key Features
 
 - *Data Cleaning & Formatting*  
