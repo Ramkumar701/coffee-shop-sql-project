@@ -37,27 +37,20 @@ WHERE MONTH(transaction_date) = 5 -- for month of (CM-May)
 ```
 ![image](https://github.com/user-attachments/assets/969334ba-737c-44f4-815f-4594ae8e3a66)
 ### 2.Total Orders
-
 ```sql
 SELECT COUNT(transaction_id) as Total_Orders
 FROM coffee_shop_sales 
 WHERE MONTH (transaction_date)= 5 -- for month of (CM-May)
-
 ```
 ![image](https://github.com/user-attachments/assets/7a0d6ca0-a0ca-409f-ab21-075e328aea49)
-
 ### 3.Total Quantity Sold
-
 ```sql
 SELECT SUM(transaction_qty) as Total_Quantity_Sold
 FROM coffee_shop_sales 
 WHERE MONTH(transaction_date) = 5 -- for month of (CM-May)
-
 ```
 ![image](https://github.com/user-attachments/assets/427a720b-f8d0-4d30-89d9-ef7e7e6d6252)
-
 ### 4.MoM (Month-over-Month) Growth and Differences
-
 ```sql
 SELECT 
     MONTH(transaction_date) AS month,
@@ -73,20 +66,16 @@ GROUP BY
     MONTH(transaction_date)
 ORDER BY 
     MONTH(transaction_date);
-
 ```
 ![image](https://github.com/user-attachments/assets/9dd1de0b-fdaa-489a-97ba-e9560f4df7af)
-
 ## Differences
 
 ### Trends & Insights
-
  - Daily Sales and Average Sales  
  - Above/Below Average Day Classification  
  - Sales by Weekday vs Weekend
 
 ### 1.Daily Sales
-
 ```sql
 SELECT 
     DAY(transaction_date) AS day_of_month,
@@ -99,12 +88,9 @@ GROUP BY
     DAY(transaction_date)
 ORDER BY 
     DAY(transaction_date);
-
 ```
 ![image](https://github.com/user-attachments/assets/7ccb6bad-f163-4f62-aa85-896f8077d23c)  ![image](https://github.com/user-attachments/assets/f26545c5-6252-479c-8170-c241f16f5e71)
-
 ### Average Sales
-
 ```sql
 SELECT 
 SELECT AVG(total_sales) AS average_sales
@@ -121,9 +107,7 @@ FROM (
 
 ```
 ![image](https://github.com/user-attachments/assets/8a60d676-edf5-4b10-baae-6b0ed77bb564)
-
 ### 2.Above/Below Average Day Classification
-
 ```sql
 SELECT 
     day_of_month,
@@ -147,10 +131,8 @@ FROM (
 ) AS sales_data
 ORDER BY 
     day_of_month;
-
 ```
 ![image](https://github.com/user-attachments/assets/0da522be-9d5a-40a7-bf1e-1689e66981f2) ![image](https://github.com/user-attachments/assets/b0680ce9-431a-4256-9d96-17f92fee8d49)
-
 ### 3.Sales by Weekday vs Weekend
 ```sql
 SELECT 
@@ -170,7 +152,6 @@ GROUP BY
     END;
 ```
 ![image](https://github.com/user-attachments/assets/35323f29-d824-4f08-af6c-751d9b8f5b2f)
-
 ### Product & Store Performance 
   - Sales by Store Location  
   - Sales by Product Category  
