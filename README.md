@@ -19,6 +19,18 @@ CREATE TABLE coffee_shop_sales (
 );
 ```
 
+## Key Features
+
+- *Data Cleaning & Formatting*  
+  - Convert transaction_date and transaction_time to proper SQL formats  
+  - Fix encoding issues and rename columns
+
+- *Sales KPIs*  
+  - Total Sales  
+  - Total Orders  
+  - Total Quantity Sold  
+  - MoM (Month-over-Month) Growth and Differences
+
 ### 1.Total Sales
 
 ```sql
