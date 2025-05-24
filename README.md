@@ -159,8 +159,93 @@ GROUP BY
 
 ### 1.Sales by Store Location
 ```sql
-
+SELECT 
+	store_location,
+	SUM(unit_price * transaction_qty) as Total_Sales
+FROM coffee_shop_sales
+WHERE
+	MONTH(transaction_date) =5 
+GROUP BY store_location
+ORDER BY 	SUM(unit_price * transaction_qty) DESC
 ```
+![image](https://github.com/user-attachments/assets/adaeba45-fbad-4af2-8bce-15b2bd4e76da)
+### 2.Sales by Product Category
+```sql
+SELECT 
+	product_category,
+	ROUND(SUM(unit_price * transaction_qty),1) as Total_Sales
+FROM coffee_shop_sales
+WHERE
+	MONTH(transaction_date) = 5 
+GROUP BY product_category
+ORDER BY SUM(unit_price * transaction_qty) DESC
+```
+![image](https://github.com/user-attachments/assets/7ced8c4f-bd4d-4977-92e3-16bafef60fb8)
+### 3.Top 10 Products By Sales
+```sql
+SELECT 
+	product_type,
+	ROUND(SUM(unit_price * transaction_qty),1) as Total_Sales
+FROM coffee_shop_sales
+WHERE
+	MONTH(transaction_date) = 5 
+GROUP BY product_type
+ORDER BY SUM(unit_price * transaction_qty) DESC
+LIMIT 10
+```
+![image](https://github.com/user-attachments/assets/1b3becb5-bfc8-47a2-8d48-b4a7fd76b715)
+### Time-of-Day Analysis 
+  - Sales by Hour  
+  - Sales by Day of the Week
+
+### 1.Sales by Hour
+```sql
+SELECT 
+    HOUR(transaction_time) AS Hour_of_Day,
+    ROUND(SUM(unit_price * transaction_qty)) AS Total_Sales
+FROM 
+    coffee_shop_sales
+WHERE 
+    MONTH(transaction_date) = 5 -- Filter for May (month number 5)
+GROUP BY 
+    HOUR(transaction_time)
+ORDER BY 
+    HOUR(transaction_time);
+```
+![image](https://github.com/user-attachments/assets/60183df5-3b34-4690-8e28-a21ce8fcd69c)
+### 2.Sales by Day of the Week
+```sql
+SELECT 
+    CASE 
+        WHEN DAYOFWEEK(transaction_date) = 2 THEN 'Monday'
+        WHEN DAYOFWEEK(transaction_date) = 3 THEN 'Tuesday'
+        WHEN DAYOFWEEK(transaction_date) = 4 THEN 'Wednesday'
+        WHEN DAYOFWEEK(transaction_date) = 5 THEN 'Thursday'
+        WHEN DAYOFWEEK(transaction_date) = 6 THEN 'Friday'
+        WHEN DAYOFWEEK(transaction_date) = 7 THEN 'Saturday'
+        ELSE 'Sunday'
+    END AS Day_of_Week,
+    ROUND(SUM(unit_price * transaction_qty)) AS Total_Sales
+FROM 
+    coffee_shop_sales
+WHERE 
+    MONTH(transaction_date) = 5 -- Filter for May (month number 5)
+GROUP BY 
+    CASE 
+        WHEN DAYOFWEEK(transaction_date) = 2 THEN 'Monday'
+        WHEN DAYOFWEEK(transaction_date) = 3 THEN 'Tuesday'
+        WHEN DAYOFWEEK(transaction_date) = 4 THEN 'Wednesday'
+        WHEN DAYOFWEEK(transaction_date) = 5 THEN 'Thursday'
+        WHEN DAYOFWEEK(transaction_date) = 6 THEN 'Friday'
+        WHEN DAYOFWEEK(transaction_date) = 7 THEN 'Saturday'
+        ELSE 'Sunday'
+    END;
+```
+![image](https://github.com/user-attachments/assets/c1fc3ed4-ade7-4f48-8298-204377cb802a)
+
+
+
+
 
 
 
