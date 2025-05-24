@@ -19,7 +19,7 @@ CREATE TABLE coffee_shop_sales (
 );
 ```
 
-### Total Sales
+### 1.Total Sales
 
 ```sql
 SELECT ROUND(SUM(unit_price * transaction_qty)) as Total_Sales 
@@ -27,3 +27,5 @@ FROM coffee_shop_sales
 WHERE MONTH(transaction_date) = 5 -- for month of (CM-May)
 
 ```
+![image](https://github.com/user-attachments/assets/969334ba-737c-44f4-815f-4594ae8e3a66)
+
