@@ -84,7 +84,7 @@ ORDER BY
 
 ## Differences
 
-###Trends & Insights
+### Trends & Insights
 
  - Daily Sales and Average Sales  
  - Above/Below Average Day Classification  
