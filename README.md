@@ -19,26 +19,23 @@ CREATE TABLE coffee_shop_sales (
 ```
 ## Key Features
 
-- *Data Cleaning & Formatting*  
+### Data Cleaning & Formatting  
   - Convert transaction_date and transaction_time to proper SQL formats  
   - Fix encoding issues and rename columns
 
-- *Sales KPIs*  
+### Sales KPIs  
   - Total Sales  
   - Total Orders  
   - Total Quantity Sold  
   - MoM (Month-over-Month) Growth and Differences
 
 ### 1.Total Sales
-
 ```sql
 SELECT ROUND(SUM(unit_price * transaction_qty)) as Total_Sales 
 FROM coffee_shop_sales 
 WHERE MONTH(transaction_date) = 5 -- for month of (CM-May)
-
 ```
 ![image](https://github.com/user-attachments/assets/969334ba-737c-44f4-815f-4594ae8e3a66)
-
 ### 2.Total Orders
 
 ```sql
