@@ -108,6 +108,57 @@ ORDER BY
 ```
 ![image](https://github.com/user-attachments/assets/7ccb6bad-f163-4f62-aa85-896f8077d23c)  ![image](https://github.com/user-attachments/assets/f26545c5-6252-479c-8170-c241f16f5e71)
 
+### Average Sales
+
+```sql
+SELECT 
+SELECT AVG(total_sales) AS average_sales
+FROM (
+    SELECT 
+        SUM(unit_price * transaction_qty) AS total_sales
+    FROM 
+        coffee_shop_sales
+	WHERE 
+        MONTH(transaction_date) = 5  -- Filter for May
+    GROUP BY 
+        transaction_date
+) AS internal_query;
+
+```
+![image](https://github.com/user-attachments/assets/8a60d676-edf5-4b10-baae-6b0ed77bb564)
+
+### 2.Above/Below Average Day Classification
+
+```sql
+SELECT 
+    day_of_month,
+    CASE 
+        WHEN total_sales > avg_sales THEN 'Above Average'
+        WHEN total_sales < avg_sales THEN 'Below Average'
+        ELSE 'Average'
+    END AS sales_status,
+    total_sales
+FROM (
+    SELECT 
+        DAY(transaction_date) AS day_of_month,
+        SUM(unit_price * transaction_qty) AS total_sales,
+        AVG(SUM(unit_price * transaction_qty)) OVER () AS avg_sales
+    FROM 
+        coffee_shop_sales
+    WHERE 
+        MONTH(transaction_date) = 5  -- Filter for May
+    GROUP BY 
+        DAY(transaction_date)
+) AS sales_data
+ORDER BY 
+    day_of_month;
+
+```
+![image](https://github.com/user-attachments/assets/0da522be-9d5a-40a7-bf1e-1689e66981f2) ![image](https://github.com/user-attachments/assets/b0680ce9-431a-4256-9d96-17f92fee8d49)
+
+
+
+
 
 
 
