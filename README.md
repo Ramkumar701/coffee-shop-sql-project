@@ -36,21 +36,21 @@ FROM coffee_shop_sales
 WHERE MONTH(transaction_date) = 5 -- for month of (CM-May)
 ```
 ![image](https://github.com/user-attachments/assets/969334ba-737c-44f4-815f-4594ae8e3a66)
-### 2.Total Orders
+### 2. Total Orders
 ```sql
 SELECT COUNT(transaction_id) as Total_Orders
 FROM coffee_shop_sales 
 WHERE MONTH (transaction_date)= 5 -- for month of (CM-May)
 ```
 ![image](https://github.com/user-attachments/assets/7a0d6ca0-a0ca-409f-ab21-075e328aea49)
-### 3.Total Quantity Sold
+### 3. Total Quantity Sold
 ```sql
 SELECT SUM(transaction_qty) as Total_Quantity_Sold
 FROM coffee_shop_sales 
 WHERE MONTH(transaction_date) = 5 -- for month of (CM-May)
 ```
 ![image](https://github.com/user-attachments/assets/427a720b-f8d0-4d30-89d9-ef7e7e6d6252)
-### 4.MoM (Month-over-Month) Growth and Differences
+### 4. MoM (Month-over-Month) Growth and Differences
 ```sql
 SELECT 
     MONTH(transaction_date) AS month,
@@ -75,7 +75,7 @@ ORDER BY
  - Above/Below Average Day Classification  
  - Sales by Weekday vs Weekend
 
-### 1.Daily Sales
+### 1. Daily Sales
 ```sql
 SELECT 
     DAY(transaction_date) AS day_of_month,
@@ -107,7 +107,7 @@ FROM (
 
 ```
 ![image](https://github.com/user-attachments/assets/8a60d676-edf5-4b10-baae-6b0ed77bb564)
-### 2.Above/Below Average Day Classification
+### 2. Above/Below Average Day Classification
 ```sql
 SELECT 
     day_of_month,
@@ -133,7 +133,7 @@ ORDER BY
     day_of_month;
 ```
 ![image](https://github.com/user-attachments/assets/0da522be-9d5a-40a7-bf1e-1689e66981f2) ![image](https://github.com/user-attachments/assets/b0680ce9-431a-4256-9d96-17f92fee8d49)
-### 3.Sales by Weekday vs Weekend
+### 3. Sales by Weekday vs Weekend
 ```sql
 SELECT 
     CASE 
@@ -157,7 +157,7 @@ GROUP BY
   - Sales by Product Category  
   - Top 10 Products by Sales
 
-### 1.Sales by Store Location
+### 1. Sales by Store Location
 ```sql
 SELECT 
 	store_location,
@@ -169,7 +169,7 @@ GROUP BY store_location
 ORDER BY 	SUM(unit_price * transaction_qty) DESC
 ```
 ![image](https://github.com/user-attachments/assets/adaeba45-fbad-4af2-8bce-15b2bd4e76da)
-### 2.Sales by Product Category
+### 2. Sales by Product Category
 ```sql
 SELECT 
 	product_category,
@@ -181,7 +181,7 @@ GROUP BY product_category
 ORDER BY SUM(unit_price * transaction_qty) DESC
 ```
 ![image](https://github.com/user-attachments/assets/7ced8c4f-bd4d-4977-92e3-16bafef60fb8)
-### 3.Top 10 Products By Sales
+### 3. Top 10 Products By Sales
 ```sql
 SELECT 
 	product_type,
@@ -198,7 +198,7 @@ LIMIT 10
   - Sales by Hour  
   - Sales by Day of the Week
 
-### 1.Sales by Hour
+### 1. Sales by Hour
 ```sql
 SELECT 
     HOUR(transaction_time) AS Hour_of_Day,
@@ -213,7 +213,7 @@ ORDER BY
     HOUR(transaction_time);
 ```
 ![image](https://github.com/user-attachments/assets/60183df5-3b34-4690-8e28-a21ce8fcd69c)
-### 2.Sales by Day of the Week
+### 2. Sales by Day of the Week
 ```sql
 SELECT 
     CASE 
