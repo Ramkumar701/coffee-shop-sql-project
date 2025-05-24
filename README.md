@@ -2,10 +2,26 @@
 
 This project contains SQL queries used to analyze sales performance data from a coffee shop database. The data includes transactions with details such as product types, prices, quantities, dates, and times.
 
+## Dataset Description
+
+The dataset simulates a coffee shop's point-of-sale system, and includes the following columns:
+
+- transaction_id: Unique ID for each transaction
+- transaction_date: Date of purchase
+- transaction_time: Time of purchase
+- product_category: Category (e.g., Coffee, Tea, Snacks)
+- product_type: Specific product name
+- unit_price: Price per unit
+- transaction_qty: Quantity purchased
+- store_location: Location of the store
+
+This dataset allows for time-based, product-based, and location-based sales analysis.
+
 ## Key Features
 
-- *Date and Time Formatting*  
-  Conversion of string-formatted dates and times into proper SQL DATE and TIME data types.
+- *Data Cleaning & Formatting*  
+  - Convert transaction_date and transaction_time to proper SQL formats  
+  - Fix encoding issues and rename column
 
 - *Sales Analysis KPIs*  
   - Total Sales  
