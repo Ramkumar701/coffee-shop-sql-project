@@ -2,21 +2,22 @@
 
 This project contains SQL queries used to analyze sales performance data from a coffee shop database. The data includes transactions with details such as product types, prices, quantities, dates, and times.
 
-## Dataset Description
+## Database Schema
 
-The dataset simulates a coffee shop's point-of-sale system, and includes the following columns:
+Below is the schema for the coffee_shop_sales table used in this project:
 
-- transaction_id: Unique ID for each transaction
-- transaction_date: Date of purchase
-- transaction_time: Time of purchase
-- product_category: Category (e.g., Coffee, Tea, Snacks)
-- product_type: Specific product name
-- unit_price: Price per unit
-- transaction_qty: Quantity purchased
-- store_location: Location of the store
-
-This dataset allows for time-based, product-based, and location-based sales analysis.
-
+```sql
+CREATE TABLE coffee_shop_sales (
+    transaction_id INT PRIMARY KEY,
+    transaction_date DATE,
+    transaction_time TIME,
+    product_category VARCHAR(50),
+    product_type VARCHAR(50),
+    unit_price DECIMAL(5,2),
+    transaction_qty INT,
+    store_location VARCHAR(50)
+);
+```
 ## Key Features
 
 - *Data Cleaning & Formatting*  
