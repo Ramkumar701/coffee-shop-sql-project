@@ -2,6 +2,11 @@
 
 This project contains SQL queries used to analyze sales performance data from a coffee shop database. The data includes transactions with details such as product types, prices, quantities, dates, and times.
 
+## Dataset
+The data for this project is sourced from the mavenanalytics dataset
+- Dataset Link:- <a href= "https://mavenanalytics.io/data-playground?page=7&pageSize=5">Coffee Shop Sales Dataset</a>
+
+  
 ## Database Schema
 
 Below is the schema for the coffee_shop_sales table used in this project:
