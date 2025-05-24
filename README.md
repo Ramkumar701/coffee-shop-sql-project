@@ -29,7 +29,7 @@ CREATE TABLE coffee_shop_sales (
   - Total Quantity Sold  
   - MoM (Month-over-Month) Growth and Differences
 
-### 1.Total Sales
+### 1. Total Sales
 ```sql
 SELECT ROUND(SUM(unit_price * transaction_qty)) as Total_Sales 
 FROM coffee_shop_sales 
