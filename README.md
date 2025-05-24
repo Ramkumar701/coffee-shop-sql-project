@@ -156,6 +156,38 @@ ORDER BY
 ```
 ![image](https://github.com/user-attachments/assets/0da522be-9d5a-40a7-bf1e-1689e66981f2) ![image](https://github.com/user-attachments/assets/b0680ce9-431a-4256-9d96-17f92fee8d49)
 
+### 3.Sales by Weekday vs Weekend
+```sql
+SELECT 
+    CASE 
+        WHEN DAYOFWEEK(transaction_date) IN (1, 7) THEN 'Weekends'
+        ELSE 'Weekdays'
+    END AS day_type,
+    ROUND(SUM(unit_price * transaction_qty),2) AS total_sales
+FROM 
+    coffee_shop_sales
+WHERE 
+    MONTH(transaction_date) = 5  -- Filter for May
+GROUP BY 
+    CASE 
+        WHEN DAYOFWEEK(transaction_date) IN (1, 7) THEN 'Weekends'
+        ELSE 'Weekdays'
+    END;
+```
+![image](https://github.com/user-attachments/assets/35323f29-d824-4f08-af6c-751d9b8f5b2f)
+
+### Product & Store Performance 
+  - Sales by Store Location  
+  - Sales by Product Category  
+  - Top 10 Products by Sales
+
+### 1.Sales by Store Location
+```sql
+
+```
+
+
+
 
 
 
