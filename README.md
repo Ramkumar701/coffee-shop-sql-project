@@ -82,9 +82,10 @@ ORDER BY
 ```
 ![image](https://github.com/user-attachments/assets/9dd1de0b-fdaa-489a-97ba-e9560f4df7af)
 
-##Differences
+## Differences
 
-- *Trends & Insights*  
+###Trends & Insights
+
  - Daily Sales and Average Sales  
  - Above/Below Average Day Classification  
  - Sales by Weekday vs Weekend
